@@ -9,6 +9,8 @@ import AuthLayout from "./layout/AuthLayout.jsx";
 import Login from "./components/Form/Login.jsx";
 import Register from "./components/Form/Register.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
+import AllProperties from "./Pages/AllProperties.jsx";
+import AddProperties from "./Pages/AddProperties.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        path: "/",
         element: <Home />,
+      },
+      {
+        path: "/allproperties",
+        loader: () => fetch("http://localhost:3000/allproperties"),
+        element: <AllProperties />,
+      },
+      {
+        path: "/addproperties",
+        element: <AddProperties />,
       },
     ],
   },
